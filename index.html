@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Bootstrap link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Css style sheet link -->
+    <link href="assets/style.css" rel="stylesheet">
+
+    <title>Weather Dashboard</title>
+</head>
+
+
+<body>
+
+    <!-- jumborton for header -->
+    <div  class="jumborton" style="color: white;">
+        <h1 class="text-center"><strong>Weather Dashboard</strong></h1>
+    </div>
+    
+
+    <!-- the main container-->
+    
+    <div class="container-fluid">
+        <div class="row">
+
+            <!-- This column is for input and search history -->
+            <div class="col-lg-3">
+                <h4 class="mt-1"><strong>Search for City:</strong></h4>
+                
+                <div class="form-group form-check-inline">
+                    <input type="text" class="form-control" id="input"/>
+                    <button class="btn btn-warning" id="searchBtn">Search</button>
+                </div>
+                
+                <!-- this list is for search history -->
+                <ul class="list-group" id="historyList"></ul>
+            </div>
+
+            <!-- this column is for present and future displaying -->
+            <div class="col-lg-9">
+                <div class="today mt-3" id="today"></div>
+                <div class="forecast mt-3" id="future"></div>
+            </div>
+        </div>
+    </div>
+    
+
+
+    <!-- jQuery link -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- script.js link -->
+    <script src="assets/script.js"></script>
+</body>
+</html>
