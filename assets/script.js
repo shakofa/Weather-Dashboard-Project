@@ -6,6 +6,7 @@ $(document).ready(function(){
 
         // here when we get the input value we search for weather
         WeatherSearch(searchVal);
+        
     });
 
 
@@ -93,25 +94,61 @@ $(document).ready(function(){
                  $("#today").append(card);
 
                  getUVIndex(response.coord.lat, response.coord.lon);
+                 getFiveDayForecast(searchVal);
      
             }
         });
         
     };
 
-
-
+  
+    
     //Function to get the 5-day forcast weather
-    function getForcastWeather(){
+    function getFiveDayForecast(searchVal){
 
-        
-    }
-   
+        //var apiKey ="60bba450f0b4f2e8daf5946dfecd1ed4";
+        var URL2 = `https://api.openweathermap.org/data/2.5/forecast?q=${searchVal}&appid=60bba450f0b4f2e8daf5946dfecd1ed4&units=imperial`;
+
+        $.ajax({
+            type: "GET",
+            url: URL2,
+            dataType: "json",
+            success:function(response){
+               console.log(response);
+               
+               $("#h2").text("5-Day-Forecast:");
+                
+            
+                for(var i = 5; i < response.list.length; i=i+8){
+                    
+                    var card = $("<div>").addClass("card bg-primary text-white");
+                    var body = $("<div>").addClass("card-body");
+                    var title = $("<h5>").addClass("card-title").text(new Date(response.list[i].dt_txt).toLocaleDateString());
+                    var img = $("<img>").attr("src", "https://api.openweathermap.org/img/w/" + response.list[i].weather[0].icon + ".png");
+                    var humid = $("<p>").addClass("card-text").text("Humidity: " + response.list[i].main.humidity + "%");
+                    var temp = $("<p>").addClass("card-text").text("Temperature: " + response.list[i].main.temp + "°F");
+
+                    body.append(title, img, temp, humid);
+                    card.append(body);
+                    $("#future").append(card);
+                   
+
+                }
+                 
+            }
+        });
+    };
+
+
+
+    // get current history, if any
+//   var history = JSON.parse(window.localStorage.getItem("history")) || [];
+
+//   if (history.length > 0) {
+//     searchWeather(history[history.length-1]);
+//   }
+
+//   for (var i = 0; i < history.length; i++) {
+//     listIRow(history[i]);
+//   }
 });
-
-
-
-
-
-
-              

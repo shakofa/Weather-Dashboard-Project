@@ -1,6 +1,16 @@
+body {
+    background-color: rgb(207, 224, 238);
+}
+
+
+
 .jumborton{
 
-    background-color: rgb(5, 64, 116);
+    background-color: #064174;
+}
+
+#future {
+    column-gap: 20px;
 }
  
 /*   */
