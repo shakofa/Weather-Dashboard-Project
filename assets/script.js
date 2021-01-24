@@ -27,8 +27,8 @@ $(document).ready(function(){
         localStorage.setItem('cities', JSON.stringify(cities));
     };
 
-
-
+     
+    //Here when the user click
     $("#historyList").on("click", "li", function(){
 
         for (var i = 0; i < history.length; i++) {
@@ -46,6 +46,7 @@ $(document).ready(function(){
         $("#historyList").append(li);
     };
 
+     $("#historyList").val(localStorage.getItem("cities"));
 
     // Function for getting the uv index
     function getUVIndex(lat, lon){
